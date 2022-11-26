@@ -7,6 +7,16 @@ test("test new employee", () => {
   expect(employee.email).toEqual(expect.any(string));
 });
 
+test("test getName", () => {
+  expect(employee.getName()).toEqual(expect.any(string));
+});
+
+test("test getID", () => {
+  expect(employee.getId()).toEqual(expect.any(number));
+});
+test("test getEmail", () => {
+  expect(employee.getEmail()).toEqual(expect.any(string));
+});
 // class employee {
 //     constructor(name, id, email) {
 //       this.name = name;

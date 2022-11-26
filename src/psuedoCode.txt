@@ -71,10 +71,11 @@ still left to do:
 
 
 
+----currently working on employees class and test, added employee code to the index.js file 12:11-----
 
-
-7. start building classes for employees and other positions
-    do i test anything here?
+7. start building classes for employees 
+    and other positions
+        do i test anything here?
 
 8. build out question arrays to gather user input
     do i test anything here?
