@@ -3,41 +3,8 @@ const fs = require("fs");
 const generateHTML = require("./utils/generateHTML");
 const employee = require("./lib/employeeClass");
 
-// The application must include Employee, Manager, Engineer, and Intern classes. The tests for these classes (in the _tests_ directory) must ALL pass.
-
-// The first class is an Employee parent class with the following properties and methods:
-// name
-// id
-// email
-// getName()
-// getId()
-// getEmail()
-// getRole()—returns 'Employee'
-
-// The other three classes will extend Employee.
-
-// In addition to Employee's properties and methods, Manager will also have the following:
-// officeNumber
-
-// getRole()—overridden to return 'Manager'
-
-// In addition to Employee's properties and methods, Engineer will also have the following:
-// github—GitHub username
-
-// getGithub()
-
-// getRole()—overridden to return 'Engineer'
-
-// In addition to Employee's properties and methods, Intern will also have the following:
-// school
-
-// getSchool()
-
-// getRole()—overridden to return 'Intern'
-
-// Finally, although it’s not a requirement, consider adding validation to ensure that user input is in the proper format.
-
-const employeeQuestions = [
+// initial employee questions
+const employeeQuestionsArray = [
   {
     type: "input",
     message: "Input employee name.",
@@ -53,9 +20,42 @@ const employeeQuestions = [
     message: "Input employee email.",
     name: "email",
   },
+  {
+    type: "list",
+    message: "Input employee role.",
+    choices: ["Manager", "Engineer", "Intern"],
+    name: "role",
+  },
 ];
 
-//  function to write README file
+const managerQuestion = [
+  {
+    type: "input",
+    message: "Input managers office number.",
+    name: "officeNum",
+    // getRole()—overridden to return 'Manager'?????
+  },
+];
+
+const engineerQuestion = [
+  {
+    type: "input",
+    message: "Input Engineers github username.",
+    name: "github",
+    // getRole()—overridden to return 'Engineer'?????
+  },
+];
+
+const internQuestion = [
+  {
+    type: "input",
+    message: "Input Interns school.",
+    name: "school",
+    // getRole()—overridden to return 'Intern'?????
+  },
+];
+
+//  function to write HTML file
 function writeToFile(generateHTML, data) {
   fs.writeToFile(generateHTML, data, function (err) {
     if (err) {
@@ -68,7 +68,7 @@ function writeToFile(generateHTML, data) {
 
 //  function to initialize app
 function init() {
-  inquirer.prompt(employeeQuestions).then(function (data) {
+  inquirer.prompt(employeeQuestionsArray).then(function (data) {
     writeToFile("generatedIndexFile.html", generateHTML(data));
     console.log(data);
   });
@@ -77,4 +77,4 @@ function init() {
 // Function call to initialize app
 init();
 
-module.exports = questions;
+module.exports = employeeQuestionsArray;
