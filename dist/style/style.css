@@ -1,12 +1,21 @@
-
-
-
-
-
-
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.header{
+    display:flex;
+    justify-content: center;
+    text-transform: uppercase;    
+    background-color: red;
+    color: white;
+    padding: 50px;
+    font-weight: 600;
+}
+#mainContainer{
+    padding-top: 80px;
+}
 .card-header{
     background-color: blue;
     color: white;
-    
-    ;
 }
