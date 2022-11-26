@@ -69,11 +69,8 @@ still left to do:
 
 
 
-3A. install jest??? not sure if this is similar to inquirer
 
-4. set up node modules
 
-5. build template html packag
 
 6. build css page cards
 
@@ -101,3 +98,11 @@ completed:
 3. set up package.json files
     installed the inquirer version 8.2.4 package successfully and see it listed in the package.json file
         Since we will be using a specific version of the inquirer package you will need to use the @ symbol to specify which version during installation.
+3A. install jest??? not sure if this is similar to inquirer
+4. set up node modules
+5. build template html 
+
+
+
+
+
