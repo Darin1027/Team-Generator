@@ -72,7 +72,6 @@ still left to do:
 
 
 
-6. build css page cards
 
 7. start building classes for employees and other positions
     do i test anything here?
@@ -101,6 +100,8 @@ completed:
 3A. install jest??? not sure if this is similar to inquirer
 4. set up node modules
 5. build template html 
+6. build css page cards
+
 
 
 
