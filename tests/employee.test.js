@@ -1,39 +1,45 @@
 // import employee class
 const employee = require("../lib/employeeClass");
+
 // start test
-test("test new employee", () => {
-  expect(employee.name).toEqual(expect.any(string));
-  expect(employee.id).toEqual(expect.any(number));
-  expect(employee.email).toEqual(expect.any(string));
+describe("employee", () => {
+  it("should display name, id and email", () => {
+    const employee = new Employee("Bob Boberson", 52, "bob_b@gmail.com");
+
+    expect(employee.name).toEqual("Bob Boberson");
+    expect(employee.id).toEqual(52);
+    expect(employee.email).toEqual("bob_b@gmail.com");
+  });
 });
 
-test("test getName", () => {
-  expect(employee.getName()).toEqual(expect.any(string));
+describe("getName", () => {
+  it("should return the employees name", () => {
+    const employee = new Employee("Bob Boberson", 52, "bob_b@gmail.com");
+
+    expect(employee.getName()).toEqual("Bob Boberson");
+  });
 });
 
-test("test getID", () => {
-  expect(employee.getID()).toEqual(expect.any(string));
+describe("getId", () => {
+  it("should return the employees name", () => {
+    const employee = new Employee("Bob Boberson", 52, "bob_b@gmail.com");
+
+    expect(employee.getId()).toEqual(52);
+  });
 });
 
-test("test getEmail", () => {});
+describe("getEmail", () => {
+  it("should return the employees name", () => {
+    const employee = new Employee("Bob Boberson", 52, "bob_b@gmail.com");
 
-// class employee {
-//     constructor(name, id, email) {
-//       this.name = name;
-//       this.id = id;
-//       this.email = email;
-//     }
+    expect(employee.getEmail()).toEqual("bob_b@gmail.com");
+  });
+});
 
-//     getName() {
-//       return this.name;
-//     }
-//     getId() {
-//       return this.id;
-//     }
-//     getEmail() {
-//       return this.email;
-//     }
-//     getRole() {
-//       return "employee";
-//     }
-//   }
+describe("getRole", () => {
+  it("should return the employees name", () => {
+    const employee = new Employee("Bob Boberson", 52, "bob_b@gmail.com");
+
+    expect(employee.getRole()).toEqual("employee");
+  });
+});
