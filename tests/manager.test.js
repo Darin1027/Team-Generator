@@ -38,11 +38,11 @@ describe("getEmail", () => {
   });
 });
 
-describe("getSchool", () => {
+describe("getofficeNum", () => {
   it("should return the managers office #", () => {
     const manager = new manager("Bob Boberson", 52, "bob_b@gmail.com", 54321);
 
-    expect(manager.getGithub()).toEqual("54321");
+    expect(manager.getofficeNum()).toEqual("54321");
   });
 });
 

@@ -2,62 +2,110 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateHTML = require("./utils/generateHTML");
 const employee = require("./lib/employeeClass");
+const manager = require("./lib/managerClass");
+const engineer = require("./lib/engineerClass");
+const intern = require("./lib/internClassS");
+let manager = [];
+let engineer = [];
+let intern = [];
+let employeeArray = { manager, engineer, intern };
 
-// initial employee questions
-const employeeQuestionsArray = [
-  {
-    type: "input",
-    message: "Input employee name.",
-    name: "Name",
-  },
-  {
-    type: "input",
-    message: "Input employee ID number.",
-    name: "id",
-  },
-  {
-    type: "input",
-    message: "Input employee email.",
-    name: "email",
-  },
-  {
-    type: "list",
-    message: "Input employee role.",
-    choices: ["Manager", "Engineer", "Intern"],
-    name: "role",
-  },
-];
+function init() {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Input employee name.",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "Input employee ID number.",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "Input employee email.",
+        name: "email",
+      },
+      {
+        type: "list",
+        message: "Input employee role.",
+        choices: ["Manager", "Engineer", "Intern"],
+        name: "role",
+      },
+    ])
+    .then(({ name, id, email, role }) => {
+      if (role === manager) {
+        return inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Input Managers office number.",
+              name: "officeNum",
+            },
+            {
+              type: "list",
+              message: "Add another employee?",
+              choices: ["yes", "no"],
+              name: "addEmployee",
+            },
+          ])
+          .then(({ officeNum, addEmployee }) => {
+            manager.push(new manager(name, id, email, officeNum));
+            if (addEmployee) {
+              return prompt();
+            }
+          });
+      } else if (role === "engineer") {
+        return inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Input Engineers github username.",
+              name: "github",
+            },
+            {
+              type: "list",
+              message: "Add another employee?",
+              choices: ["yes", "no"],
+              name: "addEmployee",
+            },
+          ])
+          .then(({ github, addEmployee }) => {
+            engineer.push(new engineer(name, id, email, github));
+            if (addEmployee) {
+              return prompt();
+            }
+          });
+      } else if (role === "intern") {
+        return inquirer
+          .prompt([
+            {
+              type: "input",
+              message: "Input Interns school name.",
+              name: "school",
+            },
+            {
+              type: "list",
+              message: "Add another employee?",
+              choices: ["yes", "no"],
+              name: "addEmployee",
+            },
+          ])
+          .then(({ school, addEmployee }) => {
+            intern.push(new intern(name, id, email, school));
+            if (addEmployee) {
+              return prompt();
+            }
+          });
+      }
+    });
+}
 
-const managerQuestion = [
-  {
-    type: "input",
-    message: "Input managers office number.",
-    name: "officeNum",
-    // getRole()—overridden to return 'Manager'?????
-  },
-];
-
-const engineerQuestion = [
-  {
-    type: "input",
-    message: "Input Engineers github username.",
-    name: "github",
-    // getRole()—overridden to return 'Engineer'?????
-  },
-];
-
-const internQuestion = [
-  {
-    type: "input",
-    message: "Input Interns school.",
-    name: "school",
-    // getRole()—overridden to return 'Intern'?????
-  },
-];
-
-//  function to write HTML file
+//  function to write README file
 function writeToFile(generateHTML, data) {
-  fs.writeToFile(generateHTML, data, function (err) {
+  fs.writeFile(generateHTML, data, function (err) {
     if (err) {
       return console.log(err);
     } else {
@@ -68,7 +116,7 @@ function writeToFile(generateHTML, data) {
 
 //  function to initialize app
 function init() {
-  inquirer.prompt(employeeQuestionsArray).then(function (data) {
+  inquirer.prompt(employeeArray).then(function (data) {
     writeToFile("generatedIndexFile.html", generateHTML(data));
     console.log(data);
   });
@@ -76,5 +124,3 @@ function init() {
 
 // Function call to initialize app
 init();
-
-module.exports = employeeQuestionsArray;
