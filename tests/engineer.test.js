@@ -1,6 +1,6 @@
 // import employee and engineer class
-const employee = require("../lib/employeeClass");
-const engineer = require("../lib/engineerClass");
+// const Employee = require("../lib/Employee");
+const Engineer = require("../lib/Engineer");
 
 // start test
 describe("engineer", () => {
@@ -72,7 +72,7 @@ describe("getGithub", () => {
 });
 
 describe("getRole", () => {
-  it("should return employee", () => {
+  it("should return engineer", () => {
     const engineer = new Engineer(
       "Bob Boberson",
       52,
@@ -80,6 +80,6 @@ describe("getRole", () => {
       "BobsGithub"
     );
 
-    expect(engineer.getRole()).toEqual("employee");
+    expect(engineer.getRole()).toEqual("engineer");
   });
 });

@@ -1,6 +1,5 @@
 // import employee and engineer class
-const employee = require("../lib/employeeClass");
-const intern = require("../lib/internClass");
+const Intern = require("../lib/Intern");
 
 // start test
 describe("intern", () => {
@@ -15,7 +14,7 @@ describe("intern", () => {
     expect(intern.name).toEqual("Bob Boberson");
     expect(intern.id).toEqual(52);
     expect(intern.email).toEqual("bob_b@gmail.com");
-    expect(intern.github).toEqual("Gotham University");
+    expect(intern.school).toEqual("Gotham University");
   });
 });
 
@@ -67,7 +66,7 @@ describe("getSchool", () => {
       "Gotham University"
     );
 
-    expect(intern.getGithub()).toEqual("Gotham University");
+    expect(intern.getSchool()).toEqual("Gotham University");
   });
 });
 
@@ -80,6 +79,6 @@ describe("getRole", () => {
       "Gotham University"
     );
 
-    expect(intern.getRole()).toEqual("employee");
+    expect(intern.getRole()).toEqual("intern");
   });
 });

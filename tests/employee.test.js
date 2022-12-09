@@ -1,5 +1,5 @@
 // import employee class
-const employee = require("../lib/employeeClass");
+const Employee = require("../lib/Employee");
 
 // start test
 describe("employee", () => {
