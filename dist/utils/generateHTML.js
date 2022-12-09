@@ -1,13 +1,13 @@
-const generateManager = function (manager) {
+const generateManagerCard = function (manager) {
   return `
   <div class="col">
     <div class="card" style="width: 18rem" id="managersCard">
-      <div class="card-header" id="position">Position :</div>
-      <div class="card-header" id="name">Name :</div>
+      <div class="card-header" id="position">MANAGER</div>
+      <div class="card-header" id="name">${manager.name}</div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="id">ID :</li>
-        <li class="list-group-item" id="email">Email :</li>
-        <li class="list-group-item" id="office#">Office # :</li>
+        <li class="list-group-item" id="id">${manager.id}</li>
+        <li class="list-group-item" id="email">${manager.email}</li>
+        <li class="list-group-item" id="office#">${manager.officeNumber}</li>
       </ul>
     </div>
   </div>`;
