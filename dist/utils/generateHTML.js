@@ -1,8 +1,17 @@
-function generateHTML(data) {
-    return`#`
-}
-
-
+const generateManager = function (manager) {
+  return `
+  <div class="col">
+    <div class="card" style="width: 18rem" id="managersCard">
+      <div class="card-header" id="position">Position :</div>
+      <div class="card-header" id="name">Name :</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" id="id">ID :</li>
+        <li class="list-group-item" id="email">Email :</li>
+        <li class="list-group-item" id="office#">Office # :</li>
+      </ul>
+    </div>
+  </div>`;
+};
 
 // <!DOCTYPE html>
 // <html lang="en">
