@@ -1,4 +1,4 @@
-# Auto Generate ReadMe Application!
+# Team Profile Generator Application!
 
 ## License:
 
