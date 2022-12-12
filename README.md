@@ -45,4 +45,6 @@ https://github.com/Darin1027/Team-Generator
 
 dplb1027@gmail.com
 
-## Link to sample readme video:
+## Link to demo video:
+
+https://watch.screencastify.com/v/MSjvughdVDpdOesCsdw2
